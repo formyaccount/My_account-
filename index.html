@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name - Social Links</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="website icon" type="png" href="./Copilot_20250612_122447.png">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f0f23 0%,
+          #1a1a3a 50%,
+          #2d1b69 100%
+        );
+        min-height: 100vh;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(
+          135deg,
+          #0f0f23 0%,
+          #1a1a3a 50%,
+          #2d1b69 100%
+        );
+      }
+
+      .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .shape {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape:nth-child(odd) {
+        animation-direction: reverse;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .profile-section {
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .profile-image:hover {
+        transform: scale(1.05);
+        border-color: #667eea;
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
+      }
+
+      .profile-name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .profile-tagline {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+
+      .social-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        animation: slideInLeft 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      .social-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .social-details p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .social-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-visit {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .btn-visit:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-copy {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .btn-copy:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Platform-specific colors */
+      .facebook {
+        background: #1877f2;
+      }
+      .instagram {
+        background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+      }
+      .telegram {
+        background: #0088cc;
+      }
+      .twitter {
+        background: #1da1f2;
+      }
+      .youtube {
+        background: #ff0000;
+      }
+      .tiktok {
+        background: #000000;
+      }
+      .snapchat {
+        background: #fffc00;
+        color: #000;
+      }
+      .linkedin {
+        background: #0077b5;
+      }
+      .whatsapp {
+        background: #25d366;
+      }
+      .email {
+        background: #ea4335;
+      }
+
+      .footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .copy-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4caf50;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        transform: translateX(300px);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .copy-notification.show {
+        transform: translateX(0);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .profile-name {
+          font-size: 2rem;
+        }
+
+        .profile-image {
+          width: 120px;
+          height: 120px;
+          font-size: 3rem;
+        }
+
+        .social-links {
+          grid-template-columns: 1fr;
+        }
+
+        .social-item {
+          padding: 0.8rem;
+        }
+
+        .social-actions {
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+
+        .btn {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-animation">
+      <div class="floating-shapes">
+        <div
+          class="shape"
+          style="
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+          "
+        ></div>
+        <div
+          class="shape"
+          style="
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+          "
+        ></div>
+        <div
+          class="shape"
+          style="
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 10%;
+            animation-delay: 4s;
+          "
+        ></div>
+        <div
+          class="shape"
+          style="
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 1s;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="profile-section">
+        <div
+          class="profile-image"
+          onclick="this.style.transform='scale(1.1)'; setTimeout(() => this.style.transform='', 200)"
+        >
+          <img src="./79.jpg" alt="Profile Picture" />
+        </div>
+        <h1 class="profile-name">Hussein Mohammed</h1>
+        <p class="profile-tagline">"Connect with me across all platforms"</p>
+      </div>
+
+      <div class="social-links">
+        <div class="social-item" style="animation-delay: 0.1s">
+          <div class="social-info">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="social-details">
+              <h3>Facebook</h3>
+              <p>Follow my updates</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a
+              href="https://www.facebook.com/share/1Ae8njW51B/"
+              class="btn btn-visit"
+              target="_blank"
+            >
+              <i class="fas fa-external-link-alt"></i> Visit
+            </a>
+            <button
+              class="btn btn-copy"
+              onclick="copyLink('https://www.facebook.com/share/1Ae8njW51B/')"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="social-item" style="animation-delay: 0.2s">
+          <div class="social-info">
+            <div class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="social-details">
+              <h3>Instagram</h3>
+              <p>Visual stories & moments</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a
+              href="https://www.instagram.com/1husth?igsh=MTZleGRxZW1venNxOQ=="
+              class="btn btn-visit"
+              target="_blank"
+            >
+              <i class="fas fa-external-link-alt"></i> Visit
+            </a>
+            <button
+              class="btn btn-copy"
+              onclick="copyLink('https://www.instagram.com/1husth?igsh=MTZleGRxZW1venNxOQ==')"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="social-item" style="animation-delay: 0.3s">
+          <div class="social-info">
+            <div class="social-icon telegram">
+              <i class="fab fa-telegram-plane"></i>
+            </div>
+            <div class="social-details">
+              <h3>Telegram</h3>
+              <p>Direct messaging</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a href="https://t.me/husTh1" class="btn btn-visit" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Visit
+            </a>
+            <button
+              class="btn btn-copy"
+              onclick="copyLink('https://t.me/husTh1')"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="social-item" style="animation-delay: 0.8s">
+          <div class="social-info">
+            <div class="social-icon linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="social-details">
+              <h3>LinkedIn</h3>
+              <p>Professional network</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a
+              href="https://www.linkedin.com/in/hussein-mohammed-236a6934a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              class="btn btn-visit"
+              target="_blank"
+            >
+              <i class="fas fa-external-link-alt"></i> Visit
+            </a>
+            <button
+              class="btn btn-copy"
+              onclick="copyLink('https://www.linkedin.com/in/hussein-mohammed-236a6934a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="social-item" style="animation-delay: 0.9s">
+          <div class="social-info">
+            <div class="social-icon whatsapp">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="social-details">
+              <h3>WhatsApp</h3>
+              <p>Direct chat</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a href="#https://wa.me/qr/KULU5RTZ4LYPP1" class="btn btn-visit" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Chat
+            </a>
+            <button
+              class="btn btn-copy"
+              onclick="copyLink('https://wa.me/qr/KULU5RTZ4LYPP1')"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="social-item" style="animation-delay: 1s">
+          <div class="social-info">
+            <div class="social-icon email">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="social-details">
+              <h3>Email</h3>
+              <p>Get in touch directly</p>
+            </div>
+          </div>
+          <div class="social-actions">
+            <a href="ha3140465@gmail.com" class="btn btn-visit">
+              <i class="fas fa-paper-plane"></i> Send
+            </a>
+            <button class="btn btn-copy" onclick="copyLink('ha3140465@gmail.com')">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2025 Hussein Mohammed. All rights reserved.</p>
+      </div>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+      Link copied to clipboard!
+    </div>
+
+    <script>
+      function copyLink(link) {
+        navigator.clipboard
+          .writeText(link)
+          .then(function () {
+            showCopyNotification();
+          })
+          .catch(function (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = link;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+              document.execCommand("copy");
+              showCopyNotification();
+            } catch (err) {
+              console.error("Failed to copy link");
+            }
+            document.body.removeChild(textArea);
+          });
+      }
+
+      function showCopyNotification() {
+        const notification = document.getElementById("copyNotification");
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 2000);
+      }
+
+      // Add staggered animation to social items
+      document.addEventListener("DOMContentLoaded", function () {
+        const socialItems = document.querySelectorAll(".social-item");
+        socialItems.forEach((item, index) => {
+          item.style.animationDelay = `${index * 0.1}s`;
+        });
+      });
+
+      // Add parallax effect to background shapes
+      document.addEventListener("mousemove", function (e) {
+        const shapes = document.querySelectorAll(".shape");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        shapes.forEach((shape, index) => {
+          const speed = (index + 1) * 0.02;
+          const xMove = (x - 0.5) * speed * 100;
+          const yMove = (y - 0.5) * speed * 100;
+          shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        });
+      });
+
+      // Add click effect to profile image
+      document
+        .querySelector(".profile-image")
+        .addEventListener("click", function () {
+          this.style.animation = "none";
+          setTimeout(() => {
+            this.style.animation = "";
+          }, 10);
+        });
+    </script>
+  </body>
+</html>
