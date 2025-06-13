@@ -522,6 +522,27 @@
           </div>
         </div>
 
+
+<div class="social-item" style="animation-delay: 1s;">
+                <div class="social-info">
+                    <div class="social-icon websites">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="social-details">
+                        <h3>My Sites</h3>
+                        <p>Th Currency Converter</p>
+                    </div>
+                </div>
+                <div class="social-actions">
+                    <a href="https://thformony.github.io/ThCurrencyConverter/" class="btn btn-visit" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visit
+                    </a>
+                    <button class="btn btn-copy" onclick="copyLink('https://thformony.github.io/ThCurrencyConverter/')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+</div>
+        
         <div class="social-item" style="animation-delay: 1s">
           <div class="social-info">
             <div class="social-icon email">
@@ -552,69 +573,64 @@
       Link copied to clipboard!
     </div>
 
-    <script>
-      function copyLink(link) {
-        navigator.clipboard
-          .writeText(link)
-          .then(function () {
-            showCopyNotification();
-          })
-          .catch(function (err) {
-            // Fallback for older browsers
-            const textArea = document.createElement("textarea");
-            textArea.value = link;
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-              document.execCommand("copy");
-              showCopyNotification();
-            } catch (err) {
-              console.error("Failed to copy link");
-            }
-            document.body.removeChild(textArea);
-          });
-      }
+<script>
+        function copyLink(link) {
+            navigator.clipboard.writeText(link).then(function() {
+                showCopyNotification();
+            }).catch(function(err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyNotification();
+                } catch (err) {
+                    console.error('Failed to copy link');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
 
-      function showCopyNotification() {
-        const notification = document.getElementById("copyNotification");
-        notification.classList.add("show");
-        setTimeout(() => {
-          notification.classList.remove("show");
-        }, 2000);
-      }
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
 
-      // Add staggered animation to social items
-      document.addEventListener("DOMContentLoaded", function () {
-        const socialItems = document.querySelectorAll(".social-item");
-        socialItems.forEach((item, index) => {
-          item.style.animationDelay = `${index * 0.1}s`;
+        // Add staggered animation to social items
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialItems = document.querySelectorAll('.social-item');
+            socialItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
         });
-      });
 
-      // Add parallax effect to background shapes
-      document.addEventListener("mousemove", function (e) {
-        const shapes = document.querySelectorAll(".shape");
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        shapes.forEach((shape, index) => {
-          const speed = (index + 1) * 0.02;
-          const xMove = (x - 0.5) * speed * 100;
-          const yMove = (y - 0.5) * speed * 100;
-          shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        // Add parallax effect to background shapes
+        document.addEventListener('mousemove', function(e) {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.02;
+                const xMove = (x - 0.5) * speed * 100;
+                const yMove = (y - 0.5) * speed * 100;
+                shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
         });
-      });
 
-      // Add click effect to profile image
-      document
-        .querySelector(".profile-image")
-        .addEventListener("click", function () {
-          this.style.animation = "none";
-          setTimeout(() => {
-            this.style.animation = "";
-          }, 10);
+        // Add click effect to profile image
+        document.querySelector('.profile-image').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 10);
         });
     </script>
-  </body>
+</body>
 </html>
